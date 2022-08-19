@@ -1,4 +1,4 @@
-package com.fundrise.composetraining
+package com.android.composetraining
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.focusable

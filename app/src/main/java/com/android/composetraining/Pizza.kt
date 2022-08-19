@@ -1,4 +1,4 @@
-package com.fundrise.composetraining
+package com.android.composetraining
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

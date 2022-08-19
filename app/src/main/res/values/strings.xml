@@ -4,6 +4,7 @@
     <string name="place_order_button">Place Order (%1$s)</string>
     <string name="pizza_preview">Pizza preview</string>
     <string name="order_placed_toast">Order submitted!</string>
+    <string name="unknown_price">$??.??</string>
 
     <string name="small">Small</string>
     <string name="medium">Medium</string>
@@ -22,5 +23,17 @@
     <string name="topping_peppers">Peppers</string>
     <string name="topping_pepperoni">Pepperoni</string>
     <string name="topping_pineapple">Pineapple</string>
+
+    <string name="status_not_started">Not started</string>
+    <string name="status_accepted">Accepted</string>
+    <string name="status_being_prepared">In the oven</string>
+    <string name="status_being_delivered">Out for delivery</string>
+    <string name="status_delivered">Delivered</string>
+
+    <string name="welcome_to_coda_pizza">Welcome to Coda Pizza!</string>
+    <string name="recommended_placement">Recommended placement: %1$s</string>
+    <string name="ordering_pizza">Ordering pizza…</string>
+    <string name="cancel">Cancel</string>
+    <string name="current_order_status">The current status of your order is:</string>
 
 </resources>

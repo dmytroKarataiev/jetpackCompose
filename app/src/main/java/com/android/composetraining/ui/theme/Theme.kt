@@ -1,4 +1,4 @@
-package com.fundrise.composetraining.ui.theme
+package com.android.composetraining.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

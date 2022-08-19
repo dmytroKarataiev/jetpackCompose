@@ -1,4 +1,4 @@
-package com.fundrise.composetraining
+package com.android.composetraining
 
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.lightColors

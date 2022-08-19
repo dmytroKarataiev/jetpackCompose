@@ -1,4 +1,4 @@
-package com.fundrise.composetraining
+package com.android.composetraining
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes

@@ -1,4 +1,4 @@
-package com.fundrise.composetraining
+package com.android.composetraining
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -18,6 +18,7 @@ fun ToppingsList(
     pizza: Pizza,
     onEditPizza: (Pizza) -> Unit,
     modifier: Modifier,
+    toppings: List<Topping>,
 ) {
     var toppingBeingAdded by rememberSaveable { mutableStateOf<Topping?>(null) }
 
@@ -41,7 +42,7 @@ fun ToppingsList(
             )
         }
 
-        items(items = Topping.values()) { topping ->
+        items(items = toppings) { topping ->
             ToppingCell(
                 topping = topping,
                 placement = pizza.toppings[topping],

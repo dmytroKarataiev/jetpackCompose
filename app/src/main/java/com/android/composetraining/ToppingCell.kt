@@ -1,7 +1,6 @@
-package com.fundrise.composetraining
+package com.android.composetraining
 
 import android.os.Parcelable
-import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row

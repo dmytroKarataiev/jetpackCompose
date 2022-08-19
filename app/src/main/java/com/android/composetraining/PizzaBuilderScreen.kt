@@ -1,40 +1,63 @@
-package com.fundrise.composetraining
+package com.android.composetraining
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.scaleOut
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Button
 import androidx.compose.material.DropdownMenu
 import androidx.compose.material.DropdownMenuItem
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalAnimationApi::class)
-@Preview
 @Composable
 fun PizzaBuilderScreen(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    repo: OrderingRepository = LocalRepoManager.current
 ) {
     var pizza by rememberSaveable { mutableStateOf(Pizza()) }
+
+    var toppings by remember { mutableStateOf(listOf<Topping>()) }
+    LaunchedEffect(Unit) {
+        toppings = repo.getToppings()
+    }
+
+    val initialPrice = stringResource(R.string.unknown_price)
+    val formattedPrice by produceState(initialPrice, pizza) {
+        value = repo.calculateFormattedPrice(pizza)
+    }
+
+    val scope = rememberCoroutineScope()
+    var currentJob by remember { mutableStateOf<Job?>(null) }
 
     Scaffold(
         modifier = modifier,
@@ -52,6 +75,7 @@ fun PizzaBuilderScreen(
                         modifier = modifier,
                     )
                     ToppingsList(
+                        toppings = toppings,
                         pizza = pizza,
                         onEditPizza = { pizza = it },
                         modifier = Modifier
@@ -59,6 +83,30 @@ fun PizzaBuilderScreen(
                             .weight(1f, fill = true)
                     )
                 }
+
+                if (currentJob != null) {
+                    Column(
+                        verticalArrangement = Arrangement.Center,
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        modifier = Modifier
+                            .background(Color.White.copy(alpha = 0.75f))
+                            .fillMaxSize(),
+                    ) {
+                        Text(
+                            stringResource(R.string.ordering_pizza),
+                            style = MaterialTheme.typography.h4
+                        )
+                        Button(
+                            onClick = {
+                                currentJob?.cancel()
+                                currentJob = null
+                            }
+                        ) {
+                            Text(stringResource(R.string.cancel))
+                        }
+                    }
+                }
+
                 var editable by remember { mutableStateOf(true) }
                 AnimatedVisibility(
                     modifier = Modifier.align(Alignment.BottomCenter),
@@ -66,11 +114,17 @@ fun PizzaBuilderScreen(
                     exit = scaleOut()
                 ) {
                     OrderButton(
-                        pizza = pizza,
+                        formattedPrice = formattedPrice,
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(dimensionResource(id = R.dimen.horizontal))
-                    ) { editable = false }
+                    ) {
+                        editable = false
+                        currentJob = scope.launch {
+                            repo.placeOrder(pizza)
+                            currentJob = null
+                        }
+                    }
                 }
 
             }

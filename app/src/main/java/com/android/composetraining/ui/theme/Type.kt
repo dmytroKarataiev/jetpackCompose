@@ -1,4 +1,4 @@
-package com.fundrise.composetraining.ui.theme
+package com.android.composetraining.ui.theme
 
 import androidx.compose.material.Typography
 

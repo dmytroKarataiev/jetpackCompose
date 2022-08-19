@@ -1,4 +1,4 @@
-package com.fundrise.composetraining
+package com.android.composetraining
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
