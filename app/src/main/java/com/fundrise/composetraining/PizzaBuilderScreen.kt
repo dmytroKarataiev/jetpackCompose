@@ -1,5 +1,8 @@
 package com.fundrise.composetraining
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.scaleOut
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -25,6 +28,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 
+@OptIn(ExperimentalAnimationApi::class)
 @Preview
 @Composable
 fun PizzaBuilderScreen(
@@ -55,13 +59,20 @@ fun PizzaBuilderScreen(
                             .weight(1f, fill = true)
                     )
                 }
-                OrderButton(
-                    pizza = pizza,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(dimensionResource(id = R.dimen.horizontal))
-                        .align(Alignment.BottomCenter)
-                )
+                var editable by remember { mutableStateOf(true) }
+                AnimatedVisibility(
+                    modifier = Modifier.align(Alignment.BottomCenter),
+                    visible = editable,
+                    exit = scaleOut()
+                ) {
+                    OrderButton(
+                        pizza = pizza,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(dimensionResource(id = R.dimen.horizontal))
+                    ) { editable = false }
+                }
+
             }
         }
     )

@@ -1,10 +1,12 @@
 package com.fundrise.composetraining
 
+import android.widget.Toast
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import java.text.NumberFormat
 
@@ -12,10 +14,16 @@ import java.text.NumberFormat
 fun OrderButton(
     pizza: Pizza,
     modifier: Modifier,
+    onButtonClicked: () -> Unit
 ) {
+    val context = LocalContext.current
     Button(
         modifier = modifier,
-        onClick = { /*TODO*/ }
+        onClick = {
+            Toast.makeText(context, R.string.order_placed_toast, Toast.LENGTH_LONG)
+                .show()
+            onButtonClicked()
+        }
     ) {
         val currencyFormatter = remember {
             NumberFormat.getCurrencyInstance()

@@ -3,6 +3,7 @@
 
     <string name="place_order_button">Place Order (%1$s)</string>
     <string name="pizza_preview">Pizza preview</string>
+    <string name="order_placed_toast">Order submitted!</string>
 
     <string name="small">Small</string>
     <string name="medium">Medium</string>
