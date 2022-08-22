@@ -20,12 +20,9 @@ import java.util.UUID
 @Composable
 fun PizzaTrackerScreen(
     orderId: UUID,
-    orderingRepository: OrderingRepository = LocalRepoManager.current,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    orderStatus: OrderStatus,
 ) {
-
-    val orderStatus by orderingRepository.getOrderStatus(orderId)
-        .collectAsState(OrderStatus.NotStarted)
 
     Scaffold(
         modifier = modifier,
