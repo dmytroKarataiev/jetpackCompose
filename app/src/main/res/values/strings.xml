@@ -33,6 +33,7 @@
     <string name="welcome_to_coda_pizza">Welcome to Coda Pizza!</string>
     <string name="recommended_placement">Recommended placement: %1$s</string>
     <string name="ordering_pizza">Ordering pizza…</string>
+    <string name="error">Error</string>
     <string name="cancel">Cancel</string>
     <string name="current_order_status">The current status of your order is:</string>
 

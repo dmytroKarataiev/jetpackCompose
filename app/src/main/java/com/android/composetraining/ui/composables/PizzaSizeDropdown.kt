@@ -1,4 +1,4 @@
-package com.android.composetraining
+package com.android.composetraining.ui.composables
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -19,6 +19,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import com.android.composetraining.R
+import com.android.composetraining.data.Pizza
+import com.android.composetraining.data.PizzaSize
 
 @Composable
 fun PizzaSizeDropdown(

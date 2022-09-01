@@ -1,4 +1,4 @@
-package com.android.composetraining
+package com.android.composetraining.ui.composables
 
 import android.os.Parcelable
 import androidx.compose.foundation.clickable
@@ -14,6 +14,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.android.composetraining.R
+import com.android.composetraining.data.Topping
+import com.android.composetraining.data.ToppingPlacement
 import kotlinx.parcelize.Parcelize
 
 @Composable

@@ -3,6 +3,9 @@ package com.android.composetraining
 import android.util.Log
 import androidx.annotation.StringRes
 import androidx.compose.runtime.compositionLocalOf
+import com.android.composetraining.data.Pizza
+import com.android.composetraining.data.Topping
+import com.android.composetraining.data.ToppingPlacement
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.GlobalScope

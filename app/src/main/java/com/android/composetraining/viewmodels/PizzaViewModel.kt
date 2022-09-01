@@ -1,11 +1,15 @@
-package com.android.composetraining
+package com.android.composetraining.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.ViewModelFactoryDsl
+import com.android.composetraining.OrderingRepository
+import com.android.composetraining.data.Pizza
+import com.android.composetraining.data.PizzaSize
+import com.android.composetraining.data.Topping
+import com.android.composetraining.viewstates.ViewState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch

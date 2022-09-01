@@ -1,7 +1,8 @@
-package com.android.composetraining
+package com.android.composetraining.data
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import com.android.composetraining.R
 
 enum class Topping(
     @StringRes val toppingName: Int,

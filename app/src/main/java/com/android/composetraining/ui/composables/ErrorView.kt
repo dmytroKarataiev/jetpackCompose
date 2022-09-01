@@ -1,4 +1,4 @@
-package com.android.composetraining
+package com.android.composetraining.ui.composables
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -12,11 +12,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import com.android.composetraining.R
 
 @Composable
-fun Loading(
+fun ErrorView(
     modifier: Modifier = Modifier,
-    onCancel: () -> Unit,
+    onRefresh: () -> Unit,
 ) {
     Column(
         verticalArrangement = Arrangement.Center,
@@ -30,7 +31,7 @@ fun Loading(
             style = MaterialTheme.typography.h4
         )
         Button(
-            onClick = onCancel
+            onClick = onRefresh
         ) {
             Text(stringResource(R.string.cancel))
         }

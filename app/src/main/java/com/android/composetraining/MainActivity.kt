@@ -5,6 +5,12 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.runtime.livedata.observeAsState
+import com.android.composetraining.ui.composables.ErrorView
+import com.android.composetraining.ui.composables.Loading
+import com.android.composetraining.ui.composables.PizzaBuilderScreen
+import com.android.composetraining.ui.composables.PizzaTrackerScreen
+import com.android.composetraining.viewmodels.PizzaViewModel
+import com.android.composetraining.viewstates.ViewState
 
 /**
  * Main entrance point to the app.
@@ -28,8 +34,12 @@ class MainActivity : ComponentActivity() {
                         editPizza = { viewModel.getPrice(it) },
                         pizza = viewState.pizza,
                     )
-                    ViewState.Loading -> Loading(onCancel = {})
-                    ViewState.Error -> TODO()
+                    ViewState.Loading -> Loading {
+                        viewModel.getToppings()
+                    }
+                    ViewState.Error -> ErrorView {
+                        viewModel.getToppings()
+                    }
                     is ViewState.Ordered -> PizzaTrackerScreen(
                         orderId = viewState.id,
                         orderStatus = viewState.status

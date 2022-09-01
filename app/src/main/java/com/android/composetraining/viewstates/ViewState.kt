@@ -1,5 +1,8 @@
-package com.android.composetraining
+package com.android.composetraining.viewstates
 
+import com.android.composetraining.OrderStatus
+import com.android.composetraining.data.Pizza
+import com.android.composetraining.data.Topping
 import java.util.UUID
 
 sealed class ViewState {

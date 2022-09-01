@@ -1,4 +1,4 @@
-package com.android.composetraining
+package com.android.composetraining.ui.composables
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -11,6 +11,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
+import com.android.composetraining.R
+import com.android.composetraining.data.Topping
+import com.android.composetraining.data.ToppingPlacement
 
 @Composable
 fun ToppingPlacementDialog(

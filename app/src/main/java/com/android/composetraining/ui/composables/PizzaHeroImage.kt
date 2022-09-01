@@ -1,4 +1,4 @@
-package com.android.composetraining
+package com.android.composetraining.ui.composables
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.focusable
@@ -12,6 +12,10 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.android.composetraining.R
+import com.android.composetraining.data.Pizza
+import com.android.composetraining.data.Topping
+import com.android.composetraining.data.ToppingPlacement
 
 @Preview
 @Composable

@@ -1,4 +1,4 @@
-package com.android.composetraining
+package com.android.composetraining.data
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

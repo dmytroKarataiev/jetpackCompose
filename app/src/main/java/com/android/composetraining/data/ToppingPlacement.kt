@@ -1,6 +1,7 @@
-package com.android.composetraining
+package com.android.composetraining.data
 
 import androidx.annotation.StringRes
+import com.android.composetraining.R
 
 enum class ToppingPlacement(
     @StringRes val label: Int

@@ -1,4 +1,4 @@
-package com.android.composetraining
+package com.android.composetraining.ui.composables
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.fillMaxWidth
